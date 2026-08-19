@@ -30,7 +30,12 @@ struct HomeView: View {
                     }
                 } else {
                     List(controller.meals) { meal in
-                        MealRowView(meal: meal)
+                        NavigationLink {
+                               MealDetailView(mealID: meal.id)
+                           } label: {
+                               MealRowView(meal: meal)
+                           }
+                           .listRowSeparator(.hidden)
                     }
                     .listStyle(.plain)
                     .refreshable {

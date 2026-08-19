@@ -22,4 +22,25 @@ final class MealService {
         
         return response.meals
     }
+    
+    func fetchMealDetail(id: String) async throws -> MealDetail {
+        guard let url = URL(
+            string: "\(baseUrl)/lookup.php?i=\(id)"
+        ) else {
+            throw URLError(.badURL)
+        }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+
+        let response = try JSONDecoder().decode(
+            MealDetailResponse.self,
+            from: data
+        )
+
+        guard let meal = response.meals.first else {
+            throw URLError(.cannotParseResponse)
+        }
+
+        return meal
+    }
 }
