@@ -9,13 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Home")
+        NavigationStack {
+            List {
+                MealRowView()
+                MealRowView()
+                MealRowView()
+            }
+            .navigationTitle("Find Meals")
         }
-        .padding()
     }
 }
 

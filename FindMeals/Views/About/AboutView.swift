@@ -10,7 +10,7 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         HStack {
-            Text("About View")
+            Text("Ayaa asprak Webpro n ADPL")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
         }

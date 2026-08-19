@@ -12,13 +12,14 @@ struct MainTabView: View {
         TabView {
             HomeView()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Meals", systemImage: "fork.knife")
                 }
             AboutView()
                 .tabItem {
-                    Label("About", systemImage: "person")
+                    Label("About", systemImage: "person.fill")
                 }
         }
+        .tint(Color(.orange))
     }
 }
 
