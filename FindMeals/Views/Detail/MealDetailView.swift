@@ -75,7 +75,6 @@ struct MealDetailView: View {
         
                     }
 
-                    // Category · Country quick line
                     HStack(spacing: 8) {
                         if let category = meal.category {
                             Text(category).fontWeight(.semibold)
@@ -91,7 +90,6 @@ struct MealDetailView: View {
 
                     Divider()
 
-                    // Info section (mirrors Category / Country rows)
                     VStack(spacing: 14) {
                         infoRow(label: "Category", value: meal.category ?? "—")
                         infoRow(label: "Country", value: meal.country ?? "—")
@@ -99,7 +97,6 @@ struct MealDetailView: View {
 
                     Divider()
 
-                    // Instructions section
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Instructions")
                             .font(.title3.bold())
@@ -133,7 +130,6 @@ struct MealDetailView: View {
     }
 }
 
-// Helper shape for rounded top corners only
 struct RoundedCorner: Shape {
     var radius: CGFloat = 25
     var corners: UIRectCorner = .allCorners
