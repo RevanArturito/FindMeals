@@ -8,28 +8,19 @@
 import SwiftUI
 
 struct AboutView: View {
-    let name: String = "Revan Arturito"
-    let email: String = "revan.arturito@example.com"
+    let name: String = "Cokorda Arturito Revan Putra Diarta"
+    let email: String = "revan.arturito@gmail.com"
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
                     HStack(spacing: 14) {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.orange, .pink],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
+                        Image("ProfilePhoto")
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: 60, height: 60)
-                            .overlay(
-                                Text("RA")
-                                    .font(.system(size: 60 * 0.36, weight: .bold))
-                                    .foregroundStyle(.white)
-                            )
+                            .clipShape(Circle())
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text(name)
@@ -49,9 +40,19 @@ struct AboutView: View {
                     .padding(.top, 24)
 
                     VStack(spacing: 0) {
-                        infoRow(icon: "hammer", label: "App", value: "FindMeals")
-                        Divider().padding(.leading, 52)
-                        infoRow(icon: "number", label: "Version", value: "1.0.0")
+                        infoRow(
+                            icon: "hammer",
+                            label: "App",
+                            value: "FindMeals"
+                        )
+                        Divider()
+                            .padding(.leading, 52)
+                            .padding(.trailing, 16)
+                        infoRow(
+                            icon: "number",
+                            label: "Version",
+                            value: "1.0.0"
+                        )
                     }
                     .background(Color(.secondarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -63,7 +64,9 @@ struct AboutView: View {
         }
     }
 
-    private func infoRow(icon: String, label: String, value: String) -> some View {
+    private func infoRow(icon: String, label: String, value: String)
+        -> some View
+    {
         HStack(spacing: 14) {
             Image(systemName: icon)
                 .font(.system(size: 12, weight: .semibold))
